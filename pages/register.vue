@@ -5,17 +5,17 @@
         <div class="column is-4 is-offset-4">
           <h2 class="title has-text-centered">Register!</h2>
 
-          <Notification :message="error" v-if="error" />
+          <Notification v-if="error" :message="error" />
 
           <form method="post" @submit.prevent="register">
             <div class="field">
               <label class="label">Username</label>
               <div class="control">
                 <input
+                  v-model="username"
                   type="text"
                   class="input"
                   name="username"
-                  v-model="username"
                   required
                 />
               </div>
@@ -24,10 +24,10 @@
               <label class="label">Email</label>
               <div class="control">
                 <input
+                  v-model="email"
                   type="email"
                   class="input"
                   name="email"
-                  v-model="email"
                   required
                 />
               </div>
@@ -36,10 +36,10 @@
               <label class="label">Password</label>
               <div class="control">
                 <input
+                  v-model="password"
                   type="password"
                   class="input"
                   name="password"
-                  v-model="password"
                   required
                 />
               </div>

@@ -7,6 +7,12 @@
 <script>
 export default {
   name: 'Notification',
-  props: ['message'],
+  props: {
+    message: {
+      type: String,
+      description: 'Message description',
+      default: null,
+    },
+  },
 }
 </script>

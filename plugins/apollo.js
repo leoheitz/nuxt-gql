@@ -1,7 +1,6 @@
 export default function ({ store, app, env }) {
   const client = app.apolloProvider.defaultClient
 
-  console.log('store', store)
   client.wsClient.lazy = true
 
   client.wsClient.connectionParams = () => {

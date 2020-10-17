@@ -5,17 +5,17 @@
         <div class="column is-4 is-offset-4">
           <h2 class="title has-text-centered">Welcome back!</h2>
 
-          <Notification :message="error" v-if="error" />
+          <Notification v-if="error" :message="error" />
 
           <form method="post" @submit.prevent="login">
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
                 <input
+                  v-model="email"
                   type="email"
                   class="input"
                   name="email"
-                  v-model="email"
                 />
               </div>
             </div>
@@ -23,10 +23,10 @@
               <label class="label">Password</label>
               <div class="control">
                 <input
+                  v-model="password"
                   type="password"
                   class="input"
                   name="password"
-                  v-model="password"
                 />
               </div>
             </div>
@@ -73,18 +73,10 @@ export default {
             password: this.password,
           },
         })
-        // this.$auth.setUser(response)
-        console.log('response login => ', response.data)
         if (response && response.data) {
-          // this.$axios.setHeader(
-          //   'X-Parse-Session-Token',
-          //   response.data.sessionToken
-          // )
           this.$auth.setUserToken(response.data.sessionToken)
-
           this.$router.push('/')
         }
-        // console.log('this.$auth this.$auth => ', this.$auth)
       } catch (err) {
         this.error = err
       }

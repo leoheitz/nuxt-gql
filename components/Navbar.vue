@@ -12,8 +12,8 @@
       <div class="navbar-menu">
         <div class="navbar-end">
           <div
-            class="navbar-item has-dropdown is-hoverable"
             v-if="isAuthenticated"
+            class="navbar-item has-dropdown is-hoverable"
           >
             <a class="navbar-link">
               {{ loggedInUser.username }}
